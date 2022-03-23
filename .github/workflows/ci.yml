@@ -1,0 +1,8 @@
+name: Playground Push Action
+on: [pull_request]
+jobs:
+  Continuous-Integration:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "A push to the playground repo has completed successfully."
+
