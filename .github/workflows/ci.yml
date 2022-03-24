@@ -4,5 +4,11 @@ jobs:
   Continuous-Integration:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "A push to the playground repo has completed successfully."
+      - run: echo "This is a CI build of branch ${{ github.ref }} in repository ${{ github.repository }}"
+      - run: echo "This job was triggered by a ${{ github.event_name }} event and is running on a ${{ runner.os }} server"
+      - run: echo "TODO Build software"
+      - run: echo "TODO Deploy for testing"
+      - run: echo "TODO Run tests"
+      - run: echo "TODO Send Slack notification on failures?"
+      - run: echo "TODO Send Slack notification on new PR?"
 
