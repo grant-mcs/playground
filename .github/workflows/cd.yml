@@ -5,14 +5,18 @@ on:
       - main
 
 jobs:
-  Build-And-Deploy:
+  print-workflow-description:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is a CD build of branch ${{ github.ref }} in repository ${{ github.repository }}"
       - run: echo "This job was triggered by a ${{ github.event_name }} event and is running on a ${{ runner.os }} server"
-      - run: echo "TODO Deploy to stage environment?"
-      - run: echo "TODO Send Slack notification on failures?"
-      - run: echo "TODO Send Slack notification on new PR?"
+
   call-build:
-    name: Build and Upload
+    name: Build and Upload Project
+    needs: print-workflow-description
     uses: eclipse-pass/playground/.github/workflows/build.yml@main
+
+  call-publish:
+    name: Build and Publish Docker image
+    needs: call-build
+    uses: eclipse-pass/playground/.github/workflows/publish.yml@main

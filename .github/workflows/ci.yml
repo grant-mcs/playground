@@ -1,14 +1,19 @@
-name: Playground Push Action
+name: Playground Continuous Integration
 on: [pull_request]
+
 jobs:
-  Continuous-Integration:
+  print-workflow-description:
     runs-on: ubuntu-latest
     steps:
       - run: echo "This is a CI build of branch ${{ github.ref }} in repository ${{ github.repository }}"
       - run: echo "This job was triggered by a ${{ github.event_name }} event and is running on a ${{ runner.os }} server"
-      - run: echo "TODO Build software"
-      - run: echo "TODO Deploy for testing"
-      - run: echo "TODO Run tests"
-      - run: echo "TODO Send Slack notification on failures?"
-      - run: echo "TODO Send Slack notification on new PR?"
 
+  call-build:
+    name: Build and Upload Project
+    needs: print-workflow-description
+    uses: eclipse-pass/playground/.github/workflows/build.yml@main
+
+  call-test:
+    name: Run Automated Tests
+    needs: call-build
+    uses: eclipse-pass/playground/.github/workflows/test.yml@main
