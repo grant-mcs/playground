@@ -95,3 +95,35 @@ And the output should look like
 ```bash
 Welcome to a maven executable
 ```
+
+
+## Maven Service
+
+The [maven-service](/maven-service) is a bare-bones Java service (
+as an executable jar).  This project also aligns with the
+[deposit-services](https://github.com/OA-PASS/deposit-services)
+with an additional _feature_.  The application will run forever
+(until explicitly stopped), whereas the maven jar will _complete_
+its task within a finite timeframe and then stop executing.
+
+To build the application locally you will need
+
+* [Maven](https://maven.apache.org/install.html), installabl with `brew install maven`
+* [Java](https://openjdk.java.net)
+
+Similar mechanism to build and test as [maven-jav](/maven-jav) project.  This
+service will run forever.
+
+### Running the application
+
+```bash
+java -jar ./target/maven-service-0.1.0.jar
+```
+
+The application will continue to execute until you hit "Enter".
+
+```
+Welcome to a maven service
+Press Enter to stop server
+
+```
