@@ -1,0 +1,29 @@
+# To use this, the following steps need to be taken:
+# 1) Add the Incoming WebHooks integration to the OA-PASS Slack workspace
+#    - NB: This is currently blocked because our free Slack workspace doesn't allow any more integrations
+# 2) Generate a Slack incoming webhook token using the integration in step 1.
+# 3) Add a new repository secret to the eclipse-pass repository called SLACK_WEBHOOK with the value
+#    set to the token generated in step 2.
+#    - https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository
+#    - The development team doesn't have access to the eclipse-pass repo settings so a request must
+#      be made to the Eclipse Foundation to get the new repository secret added.
+name: Notify of Failure
+on:
+  workflow_call
+
+jobs:
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Notification
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: '#pass-build-notifications'
+          SLACK_COLOR: danger
+          SLACK_TITLE: 'PASS Build Notification'
+          SLACK_USERNAME: "Github Actions"
+          SLACK_ICON_EMOJI: ":octocat:"
+          SLACK_MESSAGE: 'PASS build failed'

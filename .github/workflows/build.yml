@@ -1,0 +1,12 @@
+name: Build and Upload
+on:
+  workflow_call
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - run: echo "TODO Build software"
+      - run: echo "TODO Upload artifacts to storage"
