@@ -23,3 +23,75 @@ docker run -p 8080:80 hello-world
 And then you can visit http://127.0.0.1:8080
 
 ![HTML App running in browser](/docs/assets/html_app_nginx.png)
+
+## Maven JAR
+
+The [maven-jar](/maven-jar) is a bare-bones Java executable (jar)
+This aligns with [deposit-services](https://github.com/OA-PASS/deposit-services)
+as `Deposit Services' primary artifact is a single self-executing jar.`
+
+To build the application locally you will need
+
+* [Maven](https://maven.apache.org/install.html), installabl with `brew install maven`
+* [Java](https://openjdk.java.net)
+
+### Compile the application
+
+To build the application
+
+```bash
+cd maven-jav && \
+  mvn clean install
+```
+
+### Skip Tests
+
+```bash
+cd maven-jav && \
+  mvn clean package -DskipTests
+```
+
+### Run Tests
+
+
+```bash
+cd maven-jav && \
+  mvn clean test
+```
+
+The output should look similar to
+
+```bash
+[INFO] Scanning for projects...
+[INFO]
+[INFO] -----------------------< eclipse-pass:maven-jar >-----------------------
+[INFO] Building MavenJar 0.1.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ maven-jar ---
+[INFO] Deleting /Users/aforward/sin/projects/pass-eclipse/playground/maven-jar/target
+....
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ maven-jar ---
+[INFO] Installing /Users/aforward/sin/projects/pass-eclipse/playground/maven-jar/target/maven-jar-0.1.0.jar to /Users/aforward/.m2/repository/eclipse-pass/maven-jar/0.1.0/maven-jar-0.1.0.jar
+[INFO] Installing /Users/aforward/sin/projects/pass-eclipse/playground/maven-jar/pom.xml to /Users/aforward/.m2/repository/eclipse-pass/maven-jar/0.1.0/maven-jar-0.1.0.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.736 s
+[INFO] Finished at: 2022-03-31T13:38:15-04:00
+[INFO] ------------------------------------------------------------------------
+```
+
+### Running the application
+
+With the JAR built, you can run the application as follows
+
+```bash
+java -jar ./target/maven-jar-0.1.0.jar
+```
+
+And the output should look like
+
+```bash
+Welcome to a maven executable
+```
