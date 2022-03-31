@@ -1,4 +1,9 @@
-README for playground
+# Playground
+
+An collection of small `hello-world` like applications written
+in the technologies being used with eclipse-pass so that we can
+isolate, build, deploy and troubleshoot ops procedures separate
+from issues with the underlying projects.
 
 ## HTML Application (Via Docker)
 
