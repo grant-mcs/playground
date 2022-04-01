@@ -16,7 +16,7 @@ jobs:
     needs: print-workflow-description
     uses: eclipse-pass/playground/.github/workflows/build.yml@main
 
-  call-publish:
+  call-publish-docker:
     name: Build and Publish Docker image
     needs: call-build
-    uses: eclipse-pass/playground/.github/workflows/publish.yml@main
+    uses: eclipse-pass/playground/.github/workflows/publish-docker.yml@main
