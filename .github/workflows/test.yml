@@ -16,7 +16,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/maven-jar/pom.xml') }}
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      - name: Run tests with Maven
+      - name: Run maven-jar tests
         run: mvn -B test --file maven-jar/pom.xml
+      - name: Run maven-service tests
+        run: mvn -B test --file maven-service/pom.xml
