@@ -20,3 +20,8 @@ jobs:
     name: Build and Publish Docker image
     needs: call-build
     uses: eclipse-pass/playground/.github/workflows/publish-docker.yml@main
+
+  call-publish-maven:
+    name: Publish Maven packages
+    needs: call-publish-docker
+    uses: eclipse-pass/playground/.github/workflows/publish-maven.yml@main
