@@ -6,7 +6,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -54,7 +54,8 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: .
+          context: html-app
+          file: html-app/Dockerfile
           push: true
 #          tags: ${{ steps.meta.outputs.tags }}
           tags: ghcr.io/eclipse-pass/${{ env.IMAGE_NAME }}:1.0
