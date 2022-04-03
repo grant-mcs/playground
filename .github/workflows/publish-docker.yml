@@ -57,8 +57,7 @@ jobs:
           context: html-app
           file: html-app/Dockerfile
           push: true
-#          tags: ${{ steps.meta.outputs.tags }}
-          tags: ghcr.io/eclipse-pass/${{ env.IMAGE_NAME }}:1.0
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
       # Sign the resulting Docker image digest.
