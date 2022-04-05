@@ -1,9 +1,0 @@
-name: Run Automated Tests
-on:
-  workflow_call
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "TODO Run automated tests"

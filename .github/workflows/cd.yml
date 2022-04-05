@@ -11,12 +11,14 @@ jobs:
       - run: echo "This is a CD build of branch ${{ github.ref }} in repository ${{ github.repository }}"
       - run: echo "This job was triggered by a ${{ github.event_name }} event and is running on a ${{ runner.os }} server"
 
-  call-build:
-    name: Build and Upload Project
-    needs: print-workflow-description
-    uses: eclipse-pass/playground/.github/workflows/build.yml@main
-
-  call-publish:
+  call-publish-docker:
     name: Build and Publish Docker image
-    needs: call-build
-    uses: eclipse-pass/playground/.github/workflows/publish.yml@main
+    uses: eclipse-pass/playground/.github/workflows/html-app/publish.yml@main
+
+  call-publish-maven-jar:
+    name: Publish Maven JAR
+    uses: eclipse-pass/playground/.github/workflows/maven-jar/publish.yml@main
+
+  call-publish-maven-service:
+    name: Publish Maven service
+    uses: eclipse-pass/playground/.github/workflows/maven-service/publish.yml@main
