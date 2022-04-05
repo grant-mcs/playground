@@ -15,10 +15,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 14
-      - name: Publish maven-jar package
-        run: cd ${{ github.workspace }}/maven-jar && mvn --batch-mode deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish maven-service package
         run: cd ${{ github.workspace }}/maven-service && mvn --batch-mode deploy
         env:

@@ -13,7 +13,12 @@ jobs:
     needs: print-workflow-description
     uses: eclipse-pass/playground/.github/workflows/build.yml@main
 
-  call-test:
-    name: Run Automated Tests
+  call-test-maven-jar:
+    name: Run Automated Tests - Maven JAR
     needs: call-build
-    uses: eclipse-pass/playground/.github/workflows/test.yml@main
+    uses: eclipse-pass/playground/.github/workflows/maven-jar/test.yml@main
+
+  call-test-maven-service:
+    name: Run Automated Tests - Maven service
+    needs: call-build
+    uses: eclipse-pass/playground/.github/workflows/maven-service/test.yml@main
