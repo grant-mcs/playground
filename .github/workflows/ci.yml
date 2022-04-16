@@ -10,6 +10,7 @@ jobs:
 
   call-test-maven-jar:
     name: Run Automated Tests - Maven JAR
+<<<<<<< HEAD
     needs: call-build
     uses: eclipse-pass/playground/.github/workflows/maven-jar-test.yml@main
 
@@ -17,3 +18,14 @@ jobs:
     name: Run Automated Tests - Maven service
     needs: call-build
     uses: eclipse-pass/playground/.github/workflows/maven-service-test.yml@main
+=======
+    uses: eclipse-pass/playground/.github/workflows/maven-jar-test.yml@ce0c84e55d83adc811d06e470cc2f036ad13f6ee
+
+  call-test-maven-service:
+    name: Run Automated Tests - Maven service
+    uses: eclipse-pass/playground/.github/workflows/maven-service-test.yml@ce0c84e55d83adc811d06e470cc2f036ad13f6ee
+
+  temp-call-html-app-publish:
+    name: TEMP - run html-app publish step for testing
+    uses: eclipse-pass/playground/.github/workflows/html-app-publish.yml@ce0c84e55d83adc811d06e470cc2f036ad13f6ee
+>>>>>>> e21d1f7 (Remove unnecessary pre-condition for running CI steps)
