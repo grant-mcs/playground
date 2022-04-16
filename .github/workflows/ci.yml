@@ -11,9 +11,9 @@ jobs:
   call-test-maven-jar:
     name: Run Automated Tests - Maven JAR
     needs: call-build
-    uses: eclipse-pass/playground/.github/workflows/maven-jar/test.yml@main
+    uses: eclipse-pass/playground/.github/workflows/maven-jar-test.yml@main
 
   call-test-maven-service:
     name: Run Automated Tests - Maven service
     needs: call-build
-    uses: eclipse-pass/playground/.github/workflows/maven-service/test.yml@main
+    uses: eclipse-pass/playground/.github/workflows/maven-service-test.yml@main
