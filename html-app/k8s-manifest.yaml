@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: pass-playground-html-app
-    image: ghcr.io/eclipse-pass/eclipse-pass/playground:1.0
+    image: ghcr.io/eclipse-pass/eclipse-pass/playground:ghcr.io/eclipse-pass/playground:pr-7
   imagePullSecrets:
   - name: regcred
