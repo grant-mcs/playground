@@ -13,12 +13,12 @@ jobs:
 
   call-publish-docker:
     name: Build and Publish Docker image
-    uses: eclipse-pass/playground/.github/workflows/html-app/publish.yml@main
+    uses: eclipse-pass/playground/.github/workflows/html-app-publish.yml@main
 
   call-publish-maven-jar:
     name: Publish Maven JAR
-    uses: eclipse-pass/playground/.github/workflows/maven-jar/publish.yml@main
+    uses: eclipse-pass/playground/.github/workflows/maven-jar-publish.yml@main
 
   call-publish-maven-service:
     name: Publish Maven service
-    uses: eclipse-pass/playground/.github/workflows/maven-service/publish.yml@main
+    uses: eclipse-pass/playground/.github/workflows/maven-service-publish.yml@main

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: playground-reg
+spec:
+  containers:
+  - name: pass-playground-html-app
+    image: ghcr.io/eclipse-pass/eclipse-pass/playground:1.0
+  imagePullSecrets:
+  - name: regcred
