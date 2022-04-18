@@ -10,12 +10,8 @@ jobs:
 
   call-test-maven-jar:
     name: Run Automated Tests - Maven JAR
-    uses: eclipse-pass/playground/.github/workflows/maven-jar-test.yml@56509e3819434a8bf283580f5bbc0c3ea65d77c0
+    uses: eclipse-pass/playground/.github/workflows/maven-jar-test.yml@main
 
   call-test-maven-service:
     name: Run Automated Tests - Maven service
-    uses: eclipse-pass/playground/.github/workflows/maven-service-test.yml@56509e3819434a8bf283580f5bbc0c3ea65d77c0
-
-  temp-call-html-app-publish:
-    name: TEMP - run html-app publish step for testing
-    uses: eclipse-pass/playground/.github/workflows/html-app-publish.yml@56509e3819434a8bf283580f5bbc0c3ea65d77c0
+    uses: eclipse-pass/playground/.github/workflows/maven-service-test.yml@main
