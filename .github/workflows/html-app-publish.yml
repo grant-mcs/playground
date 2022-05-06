@@ -77,7 +77,7 @@ jobs:
 
       # Update k8s manifest and commit the change
       - name: Update k8s manifest
-        run: python ./.github/workflows/update-k8s-manifest.py ./html-app/k8s-manifest.yaml ${{ steps.meta.outputs.tags }}
+        run: python ./.github/workflows/update-k8s-manifest.py ./html-app/k8s-manifest.yaml ${{ steps.meta.outputs.labels.org.opencontainers.image.version }}
       - uses: fregante/setup-git-user@v1
       - name: Add updated file
         run: git add ./html-app/k8s-manifest.yaml
