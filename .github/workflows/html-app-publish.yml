@@ -88,3 +88,12 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
+      
+      # Deploy the new Docker image to our test k8s cluster
+      #   The KUBE_CONFIG secret contains the information about where our k8s cluster can be found
+      - name: Deploy to k8s cluster
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        with:
+          args: get pods
