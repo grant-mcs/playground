@@ -75,6 +75,8 @@ jobs:
         # against the sigstore community Fulcio instance.
         run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
 
+      # WARNING! This will cause any PR running these actions to be automatically merged.
+      #          It should NOT be run except on the merge of a PR.
       # Update k8s manifest and commit the change
       - name: Update k8s manifest
         run: python ./.github/workflows/update-k8s-manifest.py ./html-app/k8s-manifest.yaml ${{ steps.meta.outputs.labels.org.opencontainers.image.version }}
