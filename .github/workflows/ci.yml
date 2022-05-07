@@ -18,4 +18,4 @@ jobs:
 
   temp-call-publish-html-app:
     name: TEMP - Publish HTML app
-    uses: eclipse-pass/playground/.github/workflows/html-app-publish.yml@c5108cb789850b7b9b542eddca05539679c4fec9
+    uses: eclipse-pass/playground/.github/workflows/html-app-publish.yml@090962cdbac05a04db8e32f6e1e076c7a86f6c3e
