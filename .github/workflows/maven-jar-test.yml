@@ -1,6 +1,5 @@
-name: Run Automated Tests
-on:
-  workflow_call
+name: Run Automated Tests - Maven JAR
+on: [workflow_call, workflow_dispatch]
 
 jobs:
   build:

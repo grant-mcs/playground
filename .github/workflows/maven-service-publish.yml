@@ -1,4 +1,4 @@
-name: Publish Maven package
+name: Publish Package - Maven Service
 on: [workflow_call, workflow_dispatch]
 
 jobs:
