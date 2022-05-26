@@ -1,4 +1,4 @@
-name: Publish Docker image
+name: Publish Docker Image - HTML App
 on: [workflow_call, workflow_dispatch]
 
 env:
@@ -76,6 +76,7 @@ jobs:
         run: cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
 
       # Update k8s manifest and commit the change
+      #TODO: Update all paths to manifest YAML file
       - name: Update k8s manifest
         run: python ./.github/workflows/update-k8s-manifest.py ./html-app/k8s-manifest.yaml ${{ steps.meta.outputs.labels.org.opencontainers.image.version }}
       - uses: fregante/setup-git-user@v1

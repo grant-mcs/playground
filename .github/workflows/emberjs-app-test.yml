@@ -1,6 +1,5 @@
 name: Run Automated Tests - EmberJS
-on:
-  workflow_call
+on: [workflow_call, workflow_dispatch]
 
 jobs:
   test:
@@ -11,10 +10,13 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v2
         with:
+          #TODO: Verify Node version
           node-version: 12.x
           cache: npm
           cache-dependency-path: emberjs-app/package-lock.json
       - name: Build project
-        run: cd emberjs-app && yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile
+        working-directory: emberjs-app
       - name: Run Tests
-        run: cd emberjs-app && ./node_modules/ember-cli/bin/ember test --test-port=4200
+        run: ./node_modules/ember-cli/bin/ember test --test-port=4200
+        working-directory: emberjs-app
