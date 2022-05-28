@@ -78,18 +78,18 @@ jobs:
 
       # Update k8s manifest and commit the change
       #TODO: Update all paths to manifest YAML file
-      - name: Update k8s manifest
-        run: python ./.github/workflows/update-k8s-manifest.py ./html-app/k8s-manifest.yaml ${{ steps.meta.outputs.labels.org.opencontainers.image.version }}
-      - uses: fregante/setup-git-user@v1
-      - name: Add updated file
-        run: git add ./html-app/k8s-manifest.yaml
-      - name: Commit update
-        run: git commit -m "Auto updating html-app/k8s-manifest.yaml to use ${{ steps.meta.outputs.tags }}"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+      # - name: Update k8s manifest
+      #   run: python ./.github/workflows/update-k8s-manifest.py ./html-app/k8s-manifest.yaml ${{ steps.meta.outputs.labels.org.opencontainers.image.version }}
+      # - uses: fregante/setup-git-user@v1
+      # - name: Add updated file
+      #   run: git add ./html-app/k8s-manifest.yaml
+      # - name: Commit update
+      #   run: git commit -m "Auto updating html-app/k8s-manifest.yaml to use ${{ steps.meta.outputs.tags }}"
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@master
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: main
       
       - name: view the secrets context
         env:
