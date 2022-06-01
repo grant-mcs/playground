@@ -27,3 +27,7 @@ jobs:
   call-test-emberjs-app:
     name: Run Automated Tests - EmberJS
     uses: grant-mcs/playground/.github/workflows/emberjs-app-test.yml@main
+
+  call-publish-html-app:
+    name: Run Publish - HTML app
+    uses: grant-mcs/playground/.github/workflows/html-app-publish.yml@d28f6d76995fe2ebc2e7c64e5d4b1b66e90e6d61
