@@ -14,16 +14,16 @@ jobs:
 
   call-test-maven-jar:
     name: Run Automated Tests - Maven JAR
-    uses: eclipse-pass/playground/.github/workflows/maven-jar-test.yml@main
+    uses: grant-mcs/playground/.github/workflows/maven-jar-test.yml@main
 
   call-test-maven-service:
     name: Run Automated Tests - Maven service
-    uses: eclipse-pass/playground/.github/workflows/maven-service-test.yml@main
+    uses: grant-mcs/playground/.github/workflows/maven-service-test.yml@main
 
   call-lint-emberjs-app:
     name: Run Lint - EmberJS
-    uses: eclipse-pass/playground/.github/workflows/emberjs-app-lint.yml@main
+    uses: grant-mcs/playground/.github/workflows/emberjs-app-lint.yml@main
 
   call-test-emberjs-app:
     name: Run Automated Tests - EmberJS
-    uses: eclipse-pass/playground/.github/workflows/emberjs-app-test.yml@main
+    uses: grant-mcs/playground/.github/workflows/emberjs-app-test.yml@main
