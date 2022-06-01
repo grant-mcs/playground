@@ -16,4 +16,6 @@ jobs:
 
   call-publish-html-app:
     name: Run Publish - HTML app
-    uses: grant-mcs/playground/.github/workflows/html-app-publish.yml@d28f6d76995fe2ebc2e7c64e5d4b1b66e90e6d61
+    uses: grant-mcs/playground/.github/workflows/html-app-publish.yml@21b5a696452478e3c057e1d49b9a718e24b750e7
+    secrets:
+      TEST_SECRET: ${{ secrets.TEST_SECRET }}
