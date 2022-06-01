@@ -1,5 +1,10 @@
 name: Publish Docker Image - HTML App
-on: [workflow_call, workflow_dispatch]
+on:
+  workflow_call:
+    secrets:
+      TEST_SECRET:
+        required: true
+        description: Just testing
 
 env:
   REGISTRY: ghcr.io
@@ -29,4 +34,6 @@ jobs:
       - name: TEMP - print GH secret
         run: echo ${{ secrets.GITHUB_TOKEN }}
       - name: TEMP - print secret direct
-        run: echo ${{ secrets.TEST_SECRET }}
+        run: echo "$TEST_SECRET"
+        env:
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}
