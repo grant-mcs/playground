@@ -6,24 +6,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  print-workflow-description:
+  print-secrets-top-level:
     runs-on: ubuntu-latest
+    env:
+      SECRETS_CONTEXT: ${{ toJson(secrets) }}
     steps:
-      - run: echo "This is a CI build of branch ${{ github.ref }} in repository ${{ github.repository }}"
-      - run: echo "This job was triggered by a ${{ github.event_name }} event and is running on a ${{ runner.os }} server"
+      - run: echo "$SECRETS_CONTEXT"
+      - run: echo ${{ secrets.TEST_SECRET }}
 
-  call-test-maven-jar:
-    name: Run Automated Tests - Maven JAR
-    uses: eclipse-pass/playground/.github/workflows/maven-jar-test.yml@main
-
-  call-test-maven-service:
-    name: Run Automated Tests - Maven service
-    uses: eclipse-pass/playground/.github/workflows/maven-service-test.yml@main
-
-  call-lint-emberjs-app:
-    name: Run Lint - EmberJS
-    uses: eclipse-pass/playground/.github/workflows/emberjs-app-lint.yml@main
-
-  call-test-emberjs-app:
-    name: Run Automated Tests - EmberJS
-    uses: eclipse-pass/playground/.github/workflows/emberjs-app-test.yml@main
+  call-publish-html-app:
+    name: Run Publish - HTML app
+    uses: grant-mcs/playground/.github/workflows/html-app-publish.yml@21b5a696452478e3c057e1d49b9a718e24b750e7
+    secrets:
+      TEST_SECRET: ${{ secrets.TEST_SECRET }}
